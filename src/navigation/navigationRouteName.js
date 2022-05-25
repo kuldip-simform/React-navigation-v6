@@ -1,0 +1,27 @@
+const NAVIGATION = {
+  StackNav: 'StackNav',
+  StackFirst: 'StackFirst',
+  StackSecond: 'StackSecond',
+  TabNav: 'TabNav',
+  TabFirst: 'TabFirst',
+  TabSecond: 'TabSecond',
+  TabThird: 'TabThird',
+  TabFourth: 'TabFourth',
+  TabFifth: 'TabFifth',
+  DrawerNav: 'DrawerNav',
+  DrawerFirst: 'DrawerFirst',
+  DrawerSecond: 'DrawerSecond',
+  DrawerThird: 'DrawerThird',
+  DrawerFourth: 'DrawerFourth',
+  DrawerFifth: 'DrawerFifth',
+  DeepLink: 'DeepLink',
+  LeftToRight: 'LeftToRight',
+  RightToLeft: 'RightToLeft',
+  AnimationNav: 'AnimationNav',
+  TopNavFirst: 'TopNavFirst',
+  TopNavSecond: 'TopNavSecond',
+  TopNavThird: 'TopNavThird',
+  MaterialTopNav: 'MaterialTopNav',
+};
+
+export default NAVIGATION;
