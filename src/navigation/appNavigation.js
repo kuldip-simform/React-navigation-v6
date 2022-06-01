@@ -1,4 +1,4 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import LeftToRightScreen from '../screens/AnimationScreens/LeftToRight';
 import RightToLeftScreen from '../screens/AnimationScreens/RightToLeft';
@@ -11,7 +11,8 @@ import { MaterialTopNavigator } from './materialTopNavigation';
 import NAVIGATION from './navigationRouteName';
 import { TabNavigator } from './tabNavigation';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator(); // for native navigation component
+// const Stack = createStackNavigator(); // for JS implementation of navigation, use this if you want custom animations while navigating to new screen
 
 export function AppNavigator() {
   return (
@@ -21,6 +22,7 @@ export function AppNavigator() {
         // headerTitleAlign: 'center', // works on android only
         // headerLargeTitle: true, // works on iOS only
         headerBackTitle: 'Back', // works on iOS only
+        orientation: 'portrait',
       }}>
       <Stack.Group screenOptions={{ headerTintColor: 'gray' }}>
         <Stack.Screen
@@ -30,6 +32,7 @@ export function AppNavigator() {
         <Stack.Screen
           name={NAVIGATION.StackSecond}
           component={StackSecondScreen}
+          // options={{ orientation: 'landscape_left' }}
         />
       </Stack.Group>
       <Stack.Screen

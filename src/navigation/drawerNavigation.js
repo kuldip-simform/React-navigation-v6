@@ -3,8 +3,10 @@ import {
   DrawerContentScrollView,
   DrawerItem,
 } from '@react-navigation/drawer';
+import { HeaderBackButton } from '@react-navigation/elements';
 import React from 'react';
-import { Linking, Pressable, StyleSheet, Text } from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import DrawerFifthScreen from '../screens/DrawerScreens/DrawerFifth';
 import DrawerFirstScreen from '../screens/DrawerScreens/DrawerFirst';
 import DrawerFourthScreen from '../screens/DrawerScreens/DrawerFourth';
@@ -47,11 +49,22 @@ export function DrawerNavigator() {
   };
   return (
     <Drawer.Navigator
-      screenOptions={({ route }) => ({
+      // backBehavior="order"
+      screenOptions={({ route, navigation }) => ({
         drawerType: 'front',
         drawerPosition: 'left',
-        drawerActiveTintColor: 'pink',
+        drawerActiveTintColor: 'red',
         drawerLabel: DrawerLabel[route.name],
+        headerLeft: () => {
+          return (
+            <View style={styles.viewBtnHeader}>
+              <HeaderBackButton onPress={() => navigation.goBack()} />
+              <Pressable onPress={() => navigation.openDrawer()}>
+                <Icon name={'menu'} size={24} />
+              </Pressable>
+            </View>
+          );
+        },
       })}
       // drawerContent={props => <CustomDrawerContent {...props} />}
     >
@@ -88,5 +101,10 @@ const styles = StyleSheet.create({
   drawerSecond: {
     marginStart: 16,
     fontWeight: '700',
+  },
+
+  viewBtnHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

@@ -1,4 +1,8 @@
-import { Header, HeaderTitle } from '@react-navigation/elements';
+import {
+  Header,
+  HeaderBackButton,
+  HeaderTitle,
+} from '@react-navigation/elements';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -11,11 +15,12 @@ function DrawerSecondScreen({ navigation }) {
         title="Second"
         headerShadowVisible
         headerLeft={() => (
-          <Pressable
-            style={styles.btnMenu}
-            onPress={() => navigation.openDrawer()}>
-            <Icon name={'menu'} size={24} color={'blue'} />
-          </Pressable>
+          <View style={styles.viewHeaderBtn}>
+            <HeaderBackButton onPress={() => navigation.goBack()} />
+            <Pressable onPress={() => navigation.openDrawer()}>
+              <Icon name={'menu'} size={24} color={'blue'} />
+            </Pressable>
+          </View>
         )}
       />
       <View style={appStyles.centerContent}>
@@ -35,7 +40,9 @@ const styles = StyleSheet.create({
     padding: 20,
     textAlign: 'center',
   },
-  btnMenu: {
-    paddingStart: 12,
+
+  viewHeaderBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
