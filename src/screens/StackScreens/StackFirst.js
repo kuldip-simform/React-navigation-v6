@@ -17,7 +17,12 @@ function StackFirstScreen() {
 
           <BtnGoToNewScreen
             title={'Go to screen Two'}
-            onPress={() => navigate(NAVIGATION.StackSecond)}
+            onPress={() =>
+              navigate({
+                name: NAVIGATION.StackSecond,
+                params: { id: 1, fromFirst: "Yes, I'm from first" },
+              })
+            }
           />
 
           <BtnGoToNewScreen
