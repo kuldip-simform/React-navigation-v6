@@ -51,7 +51,7 @@ export function DrawerNavigator() {
     <Drawer.Navigator
       // backBehavior="order"
       screenOptions={({ route, navigation }) => ({
-        drawerType: 'front',
+        drawerType: 'back',
         drawerPosition: 'left',
         drawerActiveTintColor: 'red',
         drawerLabel: DrawerLabel[route.name],
